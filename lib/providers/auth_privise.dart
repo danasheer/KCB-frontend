@@ -28,13 +28,6 @@ class AuthProvider extends ChangeNotifier {
     print('skfekrfekrfergergerg ITS WORKING');
   }
 
-  void signup({required String username, required String password}) async {
-    token = await AuthServices().signup(username: username, password: password);
-    user = User.fromJson(Jwt.parseJwt(token));
-    setToken(token);
-    notifyListeners();
-  }
-
   Future<void> signin(
       {required String username, required String password}) async {
     token = await AuthServices().signin(username: username, password: password);

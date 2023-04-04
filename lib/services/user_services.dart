@@ -4,19 +4,6 @@ import '../models/user.dart';
 
 class AuthServices {
   final client = Client.dio;
-  Future<String> signup(
-      {required String username, required String password}) async {
-    late String token = "";
-    try {
-      Response response = await client.post('/api/register/',
-          data: {'username': username, 'password': password});
-      print("333333333 ${response.data}");
-      token = response.data["access"];
-    } on DioError catch (error) {
-      print(error);
-    }
-    return token;
-  }
 
   Future<String> signin(
       {required String username, required String password}) async {
