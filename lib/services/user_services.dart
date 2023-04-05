@@ -9,7 +9,7 @@ class AuthServices {
       {required String username, required String password}) async {
     String token = "";
     try {
-      Response response = await Client.dio.post('/api/login/',
+      Response response = await Client.dio.post('api/login/',
           data: {'username': username, 'password': password});
       token = response.data["access"];
       print("HURRAAAY: you signed in and your token is:\n $token");
