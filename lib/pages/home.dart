@@ -8,10 +8,6 @@ import 'package:kcb/widgets/sign_in.dart';
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
 
-  final usernameController = "";
-
-  final passwordController = "";
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,24 +16,22 @@ class Homepage extends StatelessWidget {
         image: AssetImage('assets/images/logo.png'),
       )),
       child: Scaffold(
-          resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        appBar: AppBar(
+          title: Center(
+              child: Image.asset('assets/images/logo.png',
+                  height: 100, width: 100)),
+
+          // title: Text(
+          //   'KCB',
+          //   style:
+          //       TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          // ),
+
           backgroundColor: Color.fromARGB(255, 255, 255, 255),
-          appBar: AppBar(
-            title: Center(
-                child: Image.asset('assets/images/logo.png',
-                    height: 100, width: 100)),
-
-            // title: Text(
-            //   'KCB',
-            //   style:
-            //       TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-            // ),
-
-            backgroundColor: Color.fromARGB(255, 255, 255, 255),
-          ),
-          body: SignIn(
-              usernameController: usernameController,
-              passwordController: passwordController)),
+        ),
+      ),
     );
   }
 }
