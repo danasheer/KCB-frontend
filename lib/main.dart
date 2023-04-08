@@ -3,7 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:kcb/pages/home.dart';
 import 'package:kcb/pages/landing.dart';
 import 'package:kcb/pages/login.dart';
+import 'package:kcb/pages/branches.dart';
 import 'package:kcb/providers/auth_provider.dart';
+import 'package:kcb/providers/branch_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -11,6 +13,9 @@ void main() {
     providers: [
       ChangeNotifierProvider(
         create: (_) => AuthProvider(),
+      ),
+      ChangeNotifierProvider(
+        create: (_) => BranchProvider(),
       ),
     ],
     child: MyApp(),
@@ -44,6 +49,10 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (context, state) => Homepage(),
+      ),
+      GoRoute(
+        path: '/branches',
+        builder: (context, state) => BranchPage(),
       ),
     ],
   );
