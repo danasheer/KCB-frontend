@@ -6,8 +6,10 @@ import "../models/branch.dart";
 import 'package:kcb/providers/branch_provider.dart';
 
 class BranchServices {
-  final client = Client.dio;
+  final Dio client = Client.dio;
 
+// you weren't running the app!
+// i did run
 //   Future<List<Branch>> getBranches() async {
 //     List<Branch> branches = [];
 //     try {
@@ -15,6 +17,7 @@ class BranchServices {
 //       for (var branch in response.data) {
 //         branches.add(Branch.fromJson(branch));
 //         final jsonList = response.data as List;
+//         print('WE GOT THIS IN service');
 //       }
 //     } on DioError catch (error) {
 //       print(error);
@@ -31,6 +34,7 @@ class BranchServices {
       branches = jsonList.map((branch) => Branch.fromJson(branch)).toList();
     } on DioError catch (error) {
       print(error);
+      print('WE GOT THIS IN service');
     }
     return branches;
   }
