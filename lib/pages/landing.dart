@@ -46,50 +46,54 @@ class _MyWidgetState extends State<LandingPage> {
                           wordSpacing: 2),
                     ),
                   ),
-                )
+                ),
               ],
             ),
-            Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 2.666,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 241, 241, 244),
-                  ),
+            // Align(
+            //     alignment: Alignment.bottomCenter,
+            //     child: Container(
+            //       width: MediaQuery.of(context).size.width,
+            //       height: MediaQuery.of(context).size.height / 2.666,
+            //       decoration: BoxDecoration(
+            //         color: Color.fromARGB(255, 241, 241, 244),
+            //       ),
+            //     )),
+            // Align(
+            //     alignment: Alignment.bottomCenter,
+            //     child:
+            Container(
+                // width: MediaQuery.of(context).size.width,
+                // height: MediaQuery.of(context).size.height / 2.666,
+                padding: EdgeInsets.only(top: 40, bottom: 30),
+                decoration: BoxDecoration(
+                    borderRadius:
+                        BorderRadius.only(topLeft: Radius.circular(70))),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Spacer(),
+                    ElevatedButton(
+                        onPressed: () {
+                          context.push('/login');
+                        },
+                        style: ElevatedButton.styleFrom(
+                            primary: Color.fromARGB(200, 175, 136, 100)),
+                        child: Text('LOG IN',
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1))),
+                    Center(
+                      child: Image.asset(
+                        "assets/images/landing.png",
+                        width: 300,
+                        height: 300,
+                        fit: BoxFit.fitWidth,
+                      ),
+                    )
+                  ],
                 )),
-            Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height / 2.666,
-                    padding: EdgeInsets.only(top: 40, bottom: 30),
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        borderRadius:
-                            BorderRadius.only(topLeft: Radius.circular(70))),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 40),
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  context.push('/login');
-                                },
-                                style: ElevatedButton.styleFrom(
-                                    primary: Color.fromARGB(255, 0, 0, 0)),
-                                child: Text('LOG IN',
-                                    style: TextStyle(
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        letterSpacing: 1))))
-                      ],
-                    )))
           ],
         ),
       ),

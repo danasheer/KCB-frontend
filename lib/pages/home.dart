@@ -4,7 +4,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/src/widgets/text.dart';
 import 'package:kcb/pages/branches.dart';
+import 'package:kcb/pages/printers.dart';
 import 'package:kcb/widgets/sign_in.dart';
+import 'package:kcb/pages/computer.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -47,7 +49,10 @@ class Homepage extends StatelessWidget {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ComputerPage()));
+                },
                 icon: const Icon(
                   Icons.desktop_windows,
                   color: Color.fromARGB(255, 132, 128, 100),
@@ -66,7 +71,10 @@ class Homepage extends StatelessWidget {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PrinterPage()));
+                },
                 icon: const Icon(
                   Icons.adf_scanner,
                   color: Color.fromARGB(255, 132, 128, 100),

@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:kcb/models/branch.dart';
-import 'package:kcb/providers/branch_provider.dart';
+import 'package:kcb/models/computer.dart';
+import 'package:kcb/providers/computer_provider.dart';
 
-class BranchCard extends StatefulWidget {
-  BranchCard({super.key, required this.name});
+class ComputerCard extends StatefulWidget {
+  ComputerCard({super.key, required this.name});
   String name;
 
   @override
-  State<BranchCard> createState() => _BranchCardState();
+  State<ComputerCard> createState() => _ComputerCardState();
 }
 
-class _BranchCardState extends State<BranchCard> {
+class _ComputerCardState extends State<ComputerCard> {
   var counter = 0;
-
   @override
   Widget build(BuildContext context) {
     return Container(

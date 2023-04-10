@@ -3,25 +3,23 @@ part 'computer.g.dart';
 
 @JsonSerializable()
 class Computer {
-  int? id;
+  int id;
   String ip;
-  String name;
+  String computername;
   String model;
   String serialnumber;
   String macaddress;
   String invontorynumber;
-  int department;
   int employee;
 
   Computer({
-    this.id,
+    required this.id,
     required this.ip,
-    required this.name,
+    required this.computername,
     required this.model,
     required this.serialnumber,
     required this.macaddress,
     required this.invontorynumber,
-    required this.department,
     required this.employee,
   });
   factory Computer.fromJson(Map<String, dynamic> json) =>

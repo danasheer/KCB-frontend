@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kcb/pages/computer.dart';
 import 'package:kcb/pages/home.dart';
 import 'package:kcb/pages/landing.dart';
 import 'package:kcb/pages/login.dart';
 import 'package:kcb/pages/branches.dart';
+import 'package:kcb/pages/printers.dart';
 import 'package:kcb/providers/auth_provider.dart';
 import 'package:kcb/providers/branch_provider.dart';
+import 'package:kcb/providers/computer_provider.dart';
+import 'package:kcb/providers/printer_provider.dart';
 import 'package:provider/provider.dart';
 
+//ComputerProvider
 void main() {
   runApp(MultiProvider(
     providers: [
@@ -17,6 +22,8 @@ void main() {
       ChangeNotifierProvider(
         create: (_) => BranchProvider(),
       ),
+      ChangeNotifierProvider(create: (_) => ComputerProvider()),
+      ChangeNotifierProvider(create: (_) => PrinterProvider()),
     ],
     child: MyApp(),
   ));
@@ -39,7 +46,7 @@ class MyApp extends StatelessWidget {
     // initialLocation: '/create_group',
     routes: [
       GoRoute(
-        path: '/home',
+        path: '/',
         builder: (context, state) => LandingPage(),
       ),
       GoRoute(
@@ -47,12 +54,20 @@ class MyApp extends StatelessWidget {
         builder: (context, state) => LogIn(),
       ),
       GoRoute(
-        path: '/',
+        path: '/home',
         builder: (context, state) => Homepage(),
       ),
       GoRoute(
         path: '/branches',
         builder: (context, state) => BranchPage(),
+      ),
+      GoRoute(
+        path: '/computers',
+        builder: (context, state) => ComputerPage(),
+      ),
+      GoRoute(
+        path: '/printers',
+        builder: (context, state) => PrinterPage(),
       ),
     ],
   );

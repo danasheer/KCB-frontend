@@ -31,6 +31,7 @@ class BranchServices {
     try {
       Response response = await Client.dio.get('api/branches/');
       final jsonList = response.data as List;
+      print(jsonList);
       branches = jsonList.map((branch) => Branch.fromJson(branch)).toList();
     } on DioError catch (error) {
       print(error);

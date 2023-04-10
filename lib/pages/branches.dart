@@ -35,19 +35,23 @@ class BranchPage extends StatelessWidget {
                     );
                   } else {
                     return Consumer<BranchProvider>(
-                        builder: (context, branch, child) => ListView.builder(
+                      builder: (context, branch, child) =>
+                          SingleChildScrollView(
+                        child: ListView.builder(
                             shrinkWrap: true,
-                            physics:
-                                const NeverScrollableScrollPhysics(), // <- Here
+                            scrollDirection: Axis.vertical,
+                            physics: AlwaysScrollableScrollPhysics(),
                             itemCount: branch.branches.length,
                             itemBuilder: (context, index) =>
-                                BranchCard(name: branch.branches[index].name)));
+                                BranchCard(name: branch.branches[index].name)),
+                      ),
+                    );
                   }
                 }
               },
             ),
           ),
-          Spacer(),
+          // Spacer(),
           Padding(
             padding: const EdgeInsets.all(30.0),
             child: Row(
@@ -56,15 +60,15 @@ class BranchPage extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    FloatingActionButton(
-                      onPressed: () {
-                        // GoRouter.of(context).push('/add_branch');
-                      },
-                      child: const Icon(
-                        Icons.add,
-                      ),
-                      backgroundColor: Colors.black,
-                    ),
+                    // FloatingActionButton(
+                    //   onPressed: () {
+                    //     // GoRouter.of(context).push('/add_branch');
+                    //   },
+                    //   child: const Icon(
+                    //     Icons.add,
+                    //   ),
+                    //   backgroundColor: Colors.black,
+                    // ),
                   ],
                 ),
               ],
