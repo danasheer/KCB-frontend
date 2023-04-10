@@ -9,7 +9,7 @@ class PrinterServices {
     List<Printer> printers = [];
     try {
       Response response = await client.get('api/printers/');
-      print(response);
+
       final jsonList = response.data as List;
       print(jsonList);
       print("this is printer service");

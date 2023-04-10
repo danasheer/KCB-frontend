@@ -11,6 +11,7 @@ class ScannerServices {
     try {
       Response response = await client.get('api/scanners/');
       final jsonList = response.data as List;
+      print(jsonList);
       scanners = jsonList.map((scanner) => Scanner.fromJson(scanner)).toList();
     } on DioError catch (error) {
       print(error);

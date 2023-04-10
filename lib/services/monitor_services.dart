@@ -10,6 +10,7 @@ class MonitorServices {
     try {
       Response response = await client.get('api/monitors/');
       final jsonList = response.data as List;
+      print(jsonList);
       monitors = jsonList.map((monitor) => Monitor.fromJson(monitor)).toList();
     } on DioError catch (error) {
       print(error);

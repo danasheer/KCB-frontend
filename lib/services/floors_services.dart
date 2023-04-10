@@ -11,6 +11,7 @@ class FloorServices {
     try {
       Response response = await client.get('api/floors/');
       final jsonList = response.data as List;
+      print(jsonList);
       floors = jsonList.map((floor) => Floor.fromJson(floor)).toList();
     } on DioError catch (error) {
       print(error);

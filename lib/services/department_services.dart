@@ -10,6 +10,7 @@ class DepartmentServices {
     try {
       Response response = await client.get('api/departments/');
       final jsonList = response.data as List;
+      print(jsonList);
       departments = jsonList
           .map((department) => Department.fromJson(department))
           .toList();

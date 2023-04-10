@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kcb/pages/branches.dart';
+import 'package:kcb/pages/departments.dart';
 import 'package:kcb/pages/employees.dart';
+import 'package:kcb/pages/floors.dart';
+import 'package:kcb/pages/monitor.dart';
 import 'package:kcb/pages/printers.dart';
+import 'package:kcb/pages/scanner.dart';
 import 'package:kcb/widgets/sign_in.dart';
 import 'package:kcb/pages/computer.dart';
 
@@ -56,6 +60,54 @@ class Homepage extends StatelessWidget {
               title: Text('Settings'),
               onTap: () {
                 // Navigate to the Settings page
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.linear_scale),
+              title: Text('Floors'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FloorPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.linear_scale),
+              title: Text('Departments'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DepartmentPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.linear_scale),
+              title: Text('Monitor list'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MonitorPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.linear_scale),
+              title: Text('Scanners'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ScannerPage(),
+                  ),
+                );
               },
             ),
             ListTile(

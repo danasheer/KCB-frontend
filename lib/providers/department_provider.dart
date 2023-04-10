@@ -3,11 +3,11 @@ import 'package:kcb/models/department.dart';
 import 'package:kcb/services/department_services.dart';
 
 class DepartmentProvider with ChangeNotifier {
-  List<Department> _departments = [];
-  List<Department> get departments => _departments;
+  List<Department> departments = [];
 
   Future<void> getDepartments() async {
-    _departments = await DepartmentServices().getDepartments();
+    departments = await DepartmentServices().getDepartments();
+    print(departments);
     notifyListeners();
   }
 }

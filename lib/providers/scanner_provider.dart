@@ -3,11 +3,10 @@ import 'package:kcb/models/scanner.dart';
 import 'package:kcb/services/scanner_services.dart';
 
 class ScannerProvider with ChangeNotifier {
-  List<Scanner> _scanners = [];
-  List<Scanner> get scanners => _scanners;
+  List<Scanner> scanners = [];
 
   Future<void> getScanners() async {
-    _scanners = await ScannerServices().getScanners();
+    scanners = await ScannerServices().getScanners();
     notifyListeners();
   }
 }

@@ -3,11 +3,12 @@ import 'package:kcb/models/floor.dart';
 import 'package:kcb/services/floors_services.dart';
 
 class FloorsProvider with ChangeNotifier {
-  List<Floor> _floors = [];
-  List<Floor> get floors => _floors;
+  List<Floor> floors = [];
 
   Future<void> getFloors() async {
-    _floors = await FloorServices().getFloors();
+    floors = await FloorServices().getFloors();
+    print(floors);
+
     notifyListeners();
   }
 }
