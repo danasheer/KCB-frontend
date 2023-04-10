@@ -15,10 +15,10 @@ class LogIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-        image: AssetImage('assets/images/logo.png'),
-      )),
+      // decoration: BoxDecoration(
+      //     image: DecorationImage(
+      //   image: AssetImage('assets/images/logo.png'),
+      // )),
       child: Scaffold(
           resizeToAvoidBottomInset: false,
           backgroundColor: Color.fromARGB(255, 255, 255, 255),

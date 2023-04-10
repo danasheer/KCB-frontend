@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter/src/widgets/text.dart';
 import 'package:kcb/pages/branches.dart';
+import 'package:kcb/pages/employees.dart';
 import 'package:kcb/pages/printers.dart';
 import 'package:kcb/widgets/sign_in.dart';
 import 'package:kcb/pages/computer.dart';
@@ -33,15 +34,10 @@ class Homepage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.search,
-                  color: Color.fromARGB(255, 132, 128, 100),
-                  size: 30,
-                ),
-              ),
-              IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => EmployeePage()));
+                },
                 icon: const Icon(
                   Icons.assignment_ind,
                   color: Color.fromARGB(255, 132, 128, 100),

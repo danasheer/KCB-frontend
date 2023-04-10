@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kcb/pages/computer.dart';
+import 'package:kcb/pages/employees.dart';
 import 'package:kcb/pages/home.dart';
 import 'package:kcb/pages/landing.dart';
 import 'package:kcb/pages/login.dart';
@@ -9,6 +10,7 @@ import 'package:kcb/pages/printers.dart';
 import 'package:kcb/providers/auth_provider.dart';
 import 'package:kcb/providers/branch_provider.dart';
 import 'package:kcb/providers/computer_provider.dart';
+import 'package:kcb/providers/employee_provider.dart';
 import 'package:kcb/providers/printer_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +26,7 @@ void main() {
       ),
       ChangeNotifierProvider(create: (_) => ComputerProvider()),
       ChangeNotifierProvider(create: (_) => PrinterProvider()),
+      ChangeNotifierProvider(create: (_) => EmployeeProvider()),
     ],
     child: MyApp(),
   ));
@@ -68,6 +71,10 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/printers',
         builder: (context, state) => PrinterPage(),
+      ),
+      GoRoute(
+        path: '/employees',
+        builder: (context, state) => EmployeePage(),
       ),
     ],
   );
