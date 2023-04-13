@@ -12,7 +12,7 @@ class DepartmentServices {
       Response response = await client.get('api/departments/');
       final jsonList = response.data as List;
       print(jsonList);
-      print("111111-");
+
       departments = jsonList
           .map((department) => Department.fromJson(department))
           .toList();
@@ -26,14 +26,9 @@ class DepartmentServices {
   Future<Department> getDepartmentsDetails(id) async {
     Department department =
         Department(id: 0, name: "", floor: 0, employees: []);
-    print("I AM IN DETAILS CALLING....");
     try {
       Response response = await client.get('api/departments/detail/$id/');
-      print("HELLO");
       print(response);
-      print("HELLO");
-
-      print("000000");
       department = Department.fromJson(response.data);
     } on DioError catch (error) {
       print(error);
@@ -51,14 +46,11 @@ class DepartmentServices {
         monitors: [],
         scanners: []);
 
-    print("I AM IN DETAILS CALLING....");
     try {
       Response response = await client.get('api/departments/employee/$id/');
-      print("HELLO");
-      print(response);
-      print("HELLO");
 
-      print("000000");
+      print(response);
+
       employee = Employee.fromJson(response.data);
     } on DioError catch (error) {
       print(error);

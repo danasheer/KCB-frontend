@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kcb/pages/branch_detail.dart';
 import 'package:kcb/pages/computer.dart';
 import 'package:kcb/pages/department_datail.dart';
 import 'package:kcb/pages/departments.dart';
@@ -115,6 +116,18 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/department/employee/:id',
         builder: (context, state) => DepartmentEmployeePage(
+          id: state.params['id']!,
+        ),
+      ),
+      GoRoute(
+        path: '/branch/department/:id',
+        builder: (context, state) => BranchDetailPage(
+          id: state.params['id']!,
+        ),
+      ),
+      GoRoute(
+        path: '/branche/detail/:id',
+        builder: (context, state) => BranchDetailPage(
           id: state.params['id']!,
         ),
       ),

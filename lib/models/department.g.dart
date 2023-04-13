@@ -9,7 +9,7 @@ part of 'department.dart';
 Department _$DepartmentFromJson(Map<String, dynamic> json) => Department(
       id: json['id'] as int?,
       name: json['name'] as String,
-      floor: json['floor'] as int,
+      floor: json['floor'] as int?,
       employees: (json['employees'] as List<dynamic>?)
           ?.map((e) => Employee.fromJson(e as Map<String, dynamic>))
           .toList(),

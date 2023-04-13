@@ -5,26 +5,10 @@ import "package:kcb/services/client_services.dart";
 import "../models/branch.dart";
 import 'package:kcb/providers/branch_provider.dart';
 
+import "../models/department.dart";
+
 class BranchServices {
   final Dio client = Client.dio;
-
-// you weren't running the app!
-// i did run
-//   Future<List<Branch>> getBranches() async {
-//     List<Branch> branches = [];
-//     try {
-//       Response response = await client.get('api/branches/');
-//       for (var branch in response.data) {
-//         branches.add(Branch.fromJson(branch));
-//         final jsonList = response.data as List;
-//         print('WE GOT THIS IN service');
-//       }
-//     } on DioError catch (error) {
-//       print(error);
-//     }
-//     return branches;
-//   }
-// }
 
   Future<List<Branch>> getBranches() async {
     List<Branch> branches = [];
@@ -35,8 +19,31 @@ class BranchServices {
       branches = jsonList.map((branch) => Branch.fromJson(branch)).toList();
     } on DioError catch (error) {
       print(error);
-      print('WE GOT THIS IN service');
     }
     return branches;
+  }
+
+  Future<Branch> getBranchDetail(id) async {
+    Branch branch = Branch(id: 0, name: "", departments: []);
+    try {
+      Response response = await Client.dio.get('api/branches/detail/$id/');
+      branch = Branch.fromJson(response.data);
+    } on DioError catch (error) {
+      print(error);
+    }
+    return branch;
+  }
+
+  Future<Branch> getBranchDepartment(id) async {
+    Branch branch = Branch(name: "", departments: []);
+    try {
+      Response response = await Client.dio.get('api/branch/department/$id/');
+      print("HELOOOOO00");
+      branch = Branch.fromJson(response.data);
+      print(branch);
+    } on DioError catch (error) {
+      print(error);
+    }
+    return branch;
   }
 }

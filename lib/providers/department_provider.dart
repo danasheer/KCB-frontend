@@ -17,21 +17,18 @@ class DepartmentProvider with ChangeNotifier {
 
   Future<void> getDepartments() async {
     departments = await DepartmentServices().getDepartments();
-    print("www");
     print(departments);
     notifyListeners();
   }
 
   Future<void> getDepartmentsDetails(id) async {
-    print("DETAIL IS BEING CALLED -------");
     department = await DepartmentServices().getDepartmentsDetails(id);
-    print("222");
+
     print(department);
     notifyListeners();
   }
 
   Future<void> getDepartmentEmployee(id) async {
-    print("DETAIL IS BEING CALLED -------");
     employee = await DepartmentServices().getDepartmentsEmployee(id);
     print("222");
     notifyListeners();

@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kcb/widgets/ListView.dart';
+import 'package:kcb/widgets/mySearchBar.dart';
 import 'package:provider/provider.dart';
 import 'package:kcb/providers/computer_provider.dart';
 import 'package:kcb/models/computer.dart';
 import '../widgets/computer_card.dart';
 
-class ComputerPage extends StatelessWidget {
+class ComputerPage extends StatefulWidget {
   const ComputerPage({super.key});
 
+  @override
+  State<ComputerPage> createState() => _ComputerPageState();
+}
+
+class _ComputerPageState extends State<ComputerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,18 +43,7 @@ class ComputerPage extends StatelessWidget {
                       child: Text('An error occurred'),
                     );
                   } else {
-                    return Consumer<ComputerProvider>(
-                      builder: (context, computer, child) =>
-                          SingleChildScrollView(
-                        child: ListView.builder(
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            physics: AlwaysScrollableScrollPhysics(),
-                            itemCount: computer.computers.length,
-                            itemBuilder: (context, index) => ComputerCard(
-                                name: computer.computers[index].computername)),
-                      ),
-                    );
+                    return MYLISTVIEW();
                   }
                 }
               },

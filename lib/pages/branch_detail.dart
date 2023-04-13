@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:kcb/widgets/department_card.dart';
+import 'package:kcb/widgets/employee_card.dart';
 import 'package:provider/provider.dart';
-import 'package:kcb/providers/branch_provider.dart';
-import 'package:kcb/models/branch.dart';
-import 'package:kcb/widgets/branch_card.dart';
 
-class BranchPage extends StatelessWidget {
-  BranchPage({super.key});
+import '../providers/branch_provider.dart';
+
+class BranchDetailPage extends StatelessWidget {
+  final String id;
+  const BranchDetailPage({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 250, 250, 251),
-        title: const Text('My Branches',
+        title: const Text(' Branch Detail',
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
       ),
       body: Column(
+        // child: Text('Department Detail Page with the id $id'),
         children: [
           Container(
             margin: const EdgeInsets.symmetric(vertical: 10.0),
             child: FutureBuilder(
               future: Provider.of<BranchProvider>(context, listen: false)
-                  .getBranchesDetail(),
+                  .getBranchDepartment(id),
               builder: (context, dataSnapshot) {
                 if (dataSnapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
@@ -30,23 +33,29 @@ class BranchPage extends StatelessWidget {
                   );
                 } else {
                   if (dataSnapshot.error != null) {
+                    print(dataSnapshot.error);
+
                     return const Center(
                       child: Text('An error occurred'),
                     );
                   } else {
                     return Consumer<BranchProvider>(
-                        builder: (context, branch, child) =>
-                            SingleChildScrollView(
+                      builder: (context, branch, child) =>
+                          SingleChildScrollView(
                               child: ListView.builder(
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                physics: AlwaysScrollableScrollPhysics(),
-                                itemCount: branch.branches.length,
-                                itemBuilder: (context, index) => BranchCard(
-                                    branch: branch.branches[index],
-                                    name: branch.branches[index].name),
-                              ),
-                            ));
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        physics: AlwaysScrollableScrollPhysics(),
+                        itemCount: branch.branch.departments!.length,
+                        itemBuilder: (context, index) => InkWell(
+                          onTap: () => context.push(
+                              '/branch/department/${branch.branch.departments![index].id}'),
+                          child: DepartmentCard(
+                            deparment: branch.branch.departments![index],
+                          ),
+                        ),
+                      )),
+                    );
                   }
                 }
               },
@@ -60,17 +69,7 @@ class BranchPage extends StatelessWidget {
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    // FloatingActionButton(
-                    //   onPressed: () {
-                    //     // GoRouter.of(context).push('/add_branch');
-                    //   },
-                    //   child: const Icon(
-                    //     Icons.add,
-                    //   ),
-                    //   backgroundColor: Colors.black,
-                    // ),
-                  ],
+                  children: [],
                 ),
               ],
             ),

@@ -6,13 +6,13 @@ part 'department.g.dart';
 class Department {
   int? id;
   String name;
-  int floor;
+  int? floor;
   List<Employee>? employees;
 
   Department({
     this.id,
     required this.name,
-    required this.floor,
+    this.floor,
     this.employees,
   });
   factory Department.fromJson(Map<String, dynamic> json) =>
