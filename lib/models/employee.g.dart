@@ -11,6 +11,15 @@ Employee _$EmployeeFromJson(Map<String, dynamic> json) => Employee(
       name: json['name'] as String,
       position: json['position'] as String,
       department: json['department'] as int,
+      computers: (json['computers'] as List<dynamic>?)
+          ?.map((e) => Computer.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      monitors: (json['monitors'] as List<dynamic>?)
+          ?.map((e) => Monitor.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      scanners: (json['scanners'] as List<dynamic>?)
+          ?.map((e) => Scanner.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$EmployeeToJson(Employee instance) => <String, dynamic>{
@@ -18,4 +27,7 @@ Map<String, dynamic> _$EmployeeToJson(Employee instance) => <String, dynamic>{
       'name': instance.name,
       'position': instance.position,
       'department': instance.department,
+      'computers': instance.computers,
+      'monitors': instance.monitors,
+      'scanners': instance.scanners,
     };

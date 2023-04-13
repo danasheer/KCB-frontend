@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:kcb/pages/computer.dart';
+import 'package:kcb/pages/department_datail.dart';
 import 'package:kcb/pages/departments.dart';
+import 'package:kcb/pages/depatment_employee.dart';
 import 'package:kcb/pages/employees.dart';
 import 'package:kcb/pages/floors.dart';
 import 'package:kcb/pages/home.dart';
@@ -103,6 +105,18 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/scanner',
         builder: (context, state) => ScannerPage(),
+      ),
+      GoRoute(
+        path: '/depatment/detail/:id',
+        builder: (context, state) => DepartmentDetailPage(
+          id: state.params['id']!,
+        ),
+      ),
+      GoRoute(
+        path: '/department/employee/:id',
+        builder: (context, state) => DepartmentEmployeePage(
+          id: state.params['id']!,
+        ),
       ),
     ],
   );

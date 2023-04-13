@@ -8,13 +8,17 @@ part of 'department.dart';
 
 Department _$DepartmentFromJson(Map<String, dynamic> json) => Department(
       id: json['id'] as int?,
-      number: json['number'] as int,
+      name: json['name'] as String,
       floor: json['floor'] as int,
+      employees: (json['employees'] as List<dynamic>?)
+          ?.map((e) => Employee.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$DepartmentToJson(Department instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'number': instance.number,
+      'name': instance.name,
       'floor': instance.floor,
+      'employees': instance.employees,
     };
