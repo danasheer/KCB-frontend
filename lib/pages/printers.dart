@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:kcb/providers/printer_provider.dart';
 import 'package:kcb/models/printer.dart';
+import '../widgets/listview_printer.dart';
 import '../widgets/printer_card.dart';
 
 class PrinterPage extends StatelessWidget {
@@ -37,19 +38,20 @@ class PrinterPage extends StatelessWidget {
                       child: Text('An error occurred'),
                     );
                   } else {
-                    print("THIS IS ELSE");
-                    return Consumer<PrinterProvider>(
-                      builder: (context, printer, child) =>
-                          SingleChildScrollView(
-                        child: ListView.builder(
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            physics: AlwaysScrollableScrollPhysics(),
-                            itemCount: printer.printers.length,
-                            itemBuilder: (context, index) =>
-                                PrinterCard(name: printer.printers[index].ip)),
-                      ),
-                    );
+                    return PrinterListView();
+                    // print("THIS IS ELSE");
+                    // return Consumer<PrinterProvider>(
+                    //   builder: (context, printer, child) =>
+                    //       SingleChildScrollView(
+                    //     child: ListView.builder(
+                    //         shrinkWrap: true,
+                    //         scrollDirection: Axis.vertical,
+                    //         physics: AlwaysScrollableScrollPhysics(),
+                    //         itemCount: printer.printers.length,
+                    //         itemBuilder: (context, index) =>
+                    //             PrinterCard(name: printer.printers[index].ip)),
+                    //   ),
+                    // );
                   }
                 }
               },

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:kcb/providers/employee_provider.dart';
 import 'package:kcb/models/employee.dart';
 import '../widgets/employee_card.dart';
+import '../widgets/listview_employee.dart';
 
 class EmployeePage extends StatefulWidget {
   const EmployeePage({super.key});
@@ -41,18 +42,7 @@ class _EmployeePageState extends State<EmployeePage> {
                       child: Text('An error occurred'),
                     );
                   } else {
-                    return Consumer<EmployeeProvider>(
-                      builder: (context, employee, child) =>
-                          SingleChildScrollView(
-                        child: ListView.builder(
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            physics: AlwaysScrollableScrollPhysics(),
-                            itemCount: employee.employees.length,
-                            itemBuilder: (context, index) => EmployeeCard(
-                                name: employee.employees[index].name)),
-                      ),
-                    );
+                    return EmployeeListView();
                   }
                 }
               },
