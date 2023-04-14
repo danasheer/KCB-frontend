@@ -5,9 +5,14 @@ import 'package:kcb/providers/employee_provider.dart';
 import 'package:kcb/models/employee.dart';
 import '../widgets/employee_card.dart';
 
-class EmployeePage extends StatelessWidget {
+class EmployeePage extends StatefulWidget {
   const EmployeePage({super.key});
 
+  @override
+  State<EmployeePage> createState() => _EmployeePageState();
+}
+
+class _EmployeePageState extends State<EmployeePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
