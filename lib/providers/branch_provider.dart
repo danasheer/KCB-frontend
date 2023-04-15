@@ -17,6 +17,11 @@ class BranchProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  Future<List<Branch>> getBranches() async {
+    branches = await BranchServices().getBranches();
+    return branches.toList();
+  }
+
   Future<void> getBranchDepartment(id) async {
     branch = await BranchServices().getBranchDepartment(id);
     notifyListeners();

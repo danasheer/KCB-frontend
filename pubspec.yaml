@@ -43,6 +43,7 @@ dependencies:
   shared_preferences: ^2.1.0
   dio: ^5.1.1
   provider: ^6.0.5
+  flutter_barcode_scanner: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +72,12 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/landing.png
+    - assets/images/south_surra.png
+    - assets/images/alassima.png
+    - assets/images/alriqqa.png
+    - assets/images/farwaniya.png
+    - assets/images/ghernada.png
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

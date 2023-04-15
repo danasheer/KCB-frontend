@@ -35,7 +35,6 @@ class _MYLISTVIEWState extends State<MYLISTVIEW> {
               });
             }),
         SingleChildScrollView(
-          // THIS ONE SHOULD BE SCROLLABLE
           child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,

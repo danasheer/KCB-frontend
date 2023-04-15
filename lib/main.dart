@@ -8,6 +8,7 @@ import 'package:kcb/pages/depatment_employee.dart';
 import 'package:kcb/pages/employees.dart';
 import 'package:kcb/pages/floors.dart';
 import 'package:kcb/pages/home.dart';
+import 'package:kcb/pages/Qrcode.dart';
 import 'package:kcb/pages/landing.dart';
 import 'package:kcb/pages/login.dart';
 import 'package:kcb/pages/branches.dart';
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
   }
 
   final _router = GoRouter(
-    // initialLocation: '/create_group',
+    // initialLocation: '/setting123',
     routes: [
       GoRoute(
         path: '/',
@@ -106,6 +107,10 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/scanner',
         builder: (context, state) => ScannerPage(),
+      ),
+      GoRoute(
+        path: '/setting123',
+        builder: (context, state) => QrCode(),
       ),
       GoRoute(
         path: '/depatment/detail/:id',

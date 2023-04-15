@@ -23,46 +23,49 @@ class _ComputerPageState extends State<ComputerPage> {
         title: const Text('Computer List',
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 10.0),
-            child: FutureBuilder(
-              future: Provider.of<ComputerProvider>(context, listen: false)
-                  .getComputers(),
-              builder: (context, dataSnapshot) {
-                if (dataSnapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                } else {
-                  if (dataSnapshot.error != null) {
-                    print(dataSnapshot.error);
-                    print(ComputerProvider().computers);
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 10.0),
+              child: FutureBuilder(
+                future: Provider.of<ComputerProvider>(context, listen: false)
+                    .getComputers(),
+                builder: (context, dataSnapshot) {
+                  if (dataSnapshot.connectionState == ConnectionState.waiting) {
                     return const Center(
-                      child: Text('An error occurred'),
+                      child: CircularProgressIndicator(),
                     );
                   } else {
-                    return MYLISTVIEW();
+                    if (dataSnapshot.error != null) {
+                      print(dataSnapshot.error);
+                      print(ComputerProvider().computers);
+                      return const Center(
+                        child: Text('An error occurred'),
+                      );
+                    } else {
+                      return MYLISTVIEW();
+                    }
                   }
-                }
-              },
+                },
+              ),
             ),
-          ),
-          // Spacer(),
-          Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [],
-                ),
-              ],
-            ),
-          )
-        ],
+            // Spacer(),
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

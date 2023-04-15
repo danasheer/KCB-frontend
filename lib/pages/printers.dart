@@ -39,19 +39,6 @@ class PrinterPage extends StatelessWidget {
                     );
                   } else {
                     return PrinterListView();
-                    // print("THIS IS ELSE");
-                    // return Consumer<PrinterProvider>(
-                    //   builder: (context, printer, child) =>
-                    //       SingleChildScrollView(
-                    //     child: ListView.builder(
-                    //         shrinkWrap: true,
-                    //         scrollDirection: Axis.vertical,
-                    //         physics: AlwaysScrollableScrollPhysics(),
-                    //         itemCount: printer.printers.length,
-                    //         itemBuilder: (context, index) =>
-                    //             PrinterCard(name: printer.printers[index].ip)),
-                    //   ),
-                    // );
                   }
                 }
               },

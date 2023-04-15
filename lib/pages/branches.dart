@@ -12,7 +12,8 @@ class BranchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 250, 250, 251),
+        actionsIconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         title: const Text('My Branches',
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)),
       ),

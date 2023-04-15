@@ -18,6 +18,7 @@ class AuthProvider extends ChangeNotifier {
     // print("is auth $token");
     if (token.isNotEmpty && Jwt.getExpiryDate(token)!.isAfter(DateTime.now())) {
       user = User.fromJson(Jwt.parseJwt(token));
+      print(user?.profile);
       Client.dio.options.headers = {
         HttpHeaders.authorizationHeader: 'Bearer $token',
       };
@@ -32,7 +33,7 @@ class AuthProvider extends ChangeNotifier {
       {required String username, required String password}) async {
     token = await AuthServices().signin(username: username, password: password);
     user = User.fromJson(Jwt.parseJwt(token));
-
+    print(user?.profile);
     setToken(token);
     notifyListeners();
   }

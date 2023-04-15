@@ -9,7 +9,6 @@ class BranchCard extends StatefulWidget {
   BranchCard({super.key, required this.name, required this.branch});
   String name;
   Branch branch;
-
   @override
   State<BranchCard> createState() => _BranchCardState();
 }
@@ -39,6 +38,14 @@ class _BranchCardState extends State<BranchCard> {
               //   backgroundImage: NetworkImage(widget.image),
               //   radius: 45,
               // ),
+              (widget.branch.image != null)
+                  ? Image(
+                      image: NetworkImage(widget.branch.image!),
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
+                    )
+                  : Text("${widget.branch.image}"),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Text(widget.name,
